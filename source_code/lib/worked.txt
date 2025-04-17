@@ -1,0 +1,28 @@
+
+
+logic flow -> 
+    1. first make low level handler oursleves that parses the request to our convientn type
+    2. in our case we need to parse the cookie in the request down to the payload of its JWT 
+        contents. and lets say this type is Session. 
+        lets say this handler from Request to Session type is authHandler 
+        we have: authhandler 
+    3. we then pass this handler to the heterogenous Context list, so all the endpoints now know how to 
+        handle certain requests. 
+    4. at this point we can move on to implementing and using the type lvel route pattern matching 
+        nicety of servant through a type family instance.
+    5. we use type family instance AuthServerData to extend what could be auth level or auth related
+        data through someting like type instance AuthServerData (AuthProtect "cookie-auth") = Session 
+        which is essentially mapping our AuthProtected APi with a type constant "cookie-auth" to Session. 
+        then
+    6. we can from now on just use AuthProtect (overloaded string type constant) to generically refer to any
+        of our custom authentication schemes we wrote ourselves 
+    7. and then finally now we provide the actual handler for dealing with the data in the payload of the jwt.  
+
+to summarise: 
+    1. yes, we cant escape hard decoding the response ourselves if servant doesnt provide 
+        special pattern matching combinators for us. 
+    2. but after we provide one low level middleware-like function for parsing raw request to some type
+    3. this parsed type can now be used generically like other servant combinators to pattern match for stuff
+        and providing this low level middleware-like handler once is enough to provide to all apis
+        that use our custom AuthProtect (constant) handler. 
+
