@@ -1,32 +1,66 @@
+# Terminal IDE
 
-# The github for this project can be found at: [ https://github.com/yuuzanameu/Terminal_IDE ]
+The GitHub repository for this project can be found at:  
+👉 [**https://github.com/yuuzanameu/Terminal_IDE**](https://github.com/yuuzanameu/Terminal_IDE)
 
-# Basics:
-    * The final app executable can be found inside the executable/ directory.
-    * The advanced IDE editor and collaborative tool can be custom-configged through
-        a config file setup, the position of which differs for differnt OSes.
-    
-* For Linux and Posix systems:
-    ~/.config/nvim  
-* For Windows: 
-    C:/Users/username/Appdata/Local/nvim 
+---
 
-* An example configuration is provided in source_code/nvim
+## 🧱 Basics
 
-* To acess the local AI advanced features, you need to grab a model from ollama: 
-    * [https://ollama.com/search]
-* Now the editor plugin needs to be provided the specific model name 
-    such that it can load the model in the background and control its life time. 
-* The plugin will then take care of sending user input and formatting the AI's response to 
-    the user. 
+- The final app executable can be found inside the `executable/` directory.
+- The advanced IDE editor and collaborative tool can be configured through a config file setup.
+  - The position of this config file depends on your operating system:
 
-* the "kamimaedita" executable loads the configuration from ~/.config/nvim (or the Windows equivalent)
-    every time the executable is used in the Terminal.  
+### 📁 Config File Location
 
-* The editor is highly configurable, you may add new plugins from the neovim community made plugins 
-    or even make plugins yourself and use your own plugins which my local AI plugin is an implentation of. 
+- **Linux / macOS (POSIX):**  
+  `~/.config/nvim`
 
-* The editor needs Fonts that support emojis and other complex visual effects: 
-    Nerd fonts are a good choice for this. 
-* It would be even more visually appealing if the underlying terminal supports 256 bit rich colors,
-    such as Kitty, Alacritty or Wezterm. On windows Windows Terminal does support rich text and colors. 
+- **Windows:**  
+  `C:/Users/username/AppData/Local/nvim`
+
+- An example configuration is provided at:  
+  `source_code/nvim`
+
+---
+
+## 🤖 Local AI Integration (Ollama)
+
+To access local AI-powered advanced features:
+
+1. **Download a model from Ollama:**  
+   🔗 [https://ollama.com/search](https://ollama.com/search)
+
+2. Provide the **specific model name** in your config file so the editor plugin can:
+   - Load the model in the background
+   - Manage its lifecycle automatically
+   - Send user input and format AI responses back to you
+
+---
+
+## ⚙️ Running the Editor
+
+- The `kamimaedita` executable loads the configuration from the appropriate Neovim config path (Linux or Windows) every time it's launched in the terminal.
+
+---
+
+## 🛠️ Customization & Plugins
+
+- The editor is **highly configurable**.
+- You can:
+  - Add plugins from the Neovim ecosystem
+  - Write your own plugins (the local AI plugin is an example of this)
+
+---
+
+## 🎨 Fonts & Visual Requirements
+
+- For best visual experience, use **fonts that support emojis and other complex glyphs**.  
+  👉 [Nerd Fonts](https://www.nerdfonts.com/) are highly recommended.
+
+- The editor shines when run in terminals that support **256-color rich output**, such as:
+  - **Kitty**
+  - **Alacritty**
+  - **WezTerm**
+  - On Windows: **Windows Terminal** also supports rich text and colors.
+
